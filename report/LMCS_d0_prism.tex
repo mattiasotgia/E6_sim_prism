@@ -13,7 +13,7 @@
 \preprint{LMCS\_d0\_\today}
 % \preprint{Electromagnetic-Waves-003/1}
 \title{Misura delle righe di Balmer per H con metodi Monte Carlo}
-\author{A. Parodi}
+%\author{A. Parodi}
 \author{F. Polleri}
 \author{M. Sotgia}
 \email{s4942225@studenti.unige.it}
@@ -24,6 +24,13 @@
 \maketitle
 
 \section{Introduzione}
+Un prisma ottico può essere utilizzato, sfruttando il fenomeno della rifrazione, come spettrometro per eseguire misure precise della lunghezza d'onda dato un fascio monocromatico incidente, in grado anche di separare le componenti di un fascio non monocromatico. 
+
+Si sa che infatti la differenza $\delta_i$ tra l'angolo in ingresso $\theta_0$ e l'angolo in uscita $\theta_i$ risulta essere legato al valore dell'indice di rifrazione del materiale, \begin{equation}\delta_i = \theta_0 - \alpha+\arcsin\left(n\sin\left(\alpha - \arcsin\left(\frac{\sin\theta_0}{n}\right)\right)\right),\end{equation} con $n$ indice di rifrazione e $\alpha$ apertura angolare del prisma. 
+
+Si osserva che $\delta_i$ ha un minimo in corrispondenza del quale la misura è più stabile e la relazione precedente si semplifica come \begin{equation} n\sin\frac{\alpha}{2} = \sin\frac{\delta_m + \alpha}{2} = \sin\theta_{0_m}.\end{equation}
+
+Possiamo anche però ricavare la relazione che lega l'indice di rifrazione $n$ al valore di $\delta_m$, e poichè $n=n(\lambda)$, secondo la relazione di Cauchy \begin{equation} n(\lambda) = A + \frac{B}{\lambda^2},\end{equation} appropriata ad un ordine $\mathcal O (1/\lambda^2)$, con $A$ e $B$ coefficienti propri del materiale in questione, allora possiamo concludere che esistono relazioni che legano $\lambda$ con il valore di $\delta_i$. 
 
 \section{Angoli di Balmer}
 
