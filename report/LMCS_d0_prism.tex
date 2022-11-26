@@ -38,7 +38,7 @@ Si sa che infatti la differenza $\delta_m$ tra l'angolo di ingresso nel prisma $
 
 Si osserva che $\delta_m$ ha un minimo in corrispondenza del quale la misura è più stabile e la relazione precedente si semplifica come \begin{equation} n\sin\frac{\alpha}{2} = \sin\frac{\delta_m + \alpha}{2} \end{equation}
 
-Da quest'ultima relazione possiamo ottenere una forma per l'indice \begin{equation} n(\theta_m, \theta_0) = \frac{\sin\frac{\theta_m-\theta_0 + \alpha}{2}}{\sin\frac{\alpha}{2}}.\label{eq:nthth0}\end{equation}
+Da quest'ultima relazione possiamo ottenere una forma per l'indice di rifrazione \begin{equation} n(\theta_m, \theta_0) = \frac{\sin\frac{\theta_m-\theta_0 + \alpha}{2}}{\sin\frac{\alpha}{2}}.\label{eq:nthth0}\end{equation}
 
 Però possiamo anche ricavare la relazione che lega la lunghezza d'onda $\lambda$ al valore di $\delta_m$ confrontando la relazione di Cauchy \begin{equation} n(\lambda) = A + \frac{B}{\lambda^2},\end{equation} appropriata ad un ordine $\mathcal O (1/\lambda^2)$, con $A$ e $B$ coefficienti propri del materiale in questione, e l'Eq. \eqref{eq:nthth0}
 
@@ -54,15 +54,15 @@ Possiamo allora determinare per ogni $\theta_m$ il valore $\lambda_m$ come \begi
 Possiamo quindi trovare una relazione tra i dati forniti e il valore di $R_H$. 
 Come prima cosa possiamo calcolare il valore delle lunghezze d'onda a partire dai dati conosciuti. Conosciamo la forma effettiva di $\frac{1}{\lambda} = \frac{1}{\lambda}(\theta, \theta_0, A, B, \alpha)$, dove, a parte $\alpha$, i parametri presentano deviazione standard non trascurabile, comportando una correlazione tra i valori $\lambda_m$ al variare di $m$. Però, prima ancora di incontrare il problema legato alla correlazione tra le diverse lunghezze d'onda, dobbiamo capire come procedere per poter ottenere non solo il loro valore, ma anche il relativo errore. Dalle relazioni \eqref{eq:ryd} e \eqref{eq:7} osserviamo che la quantità che in realtà è utile ottenere è il fattore $1/\lambda$, comune alle due equazioni. 
 
-Possiamo osservare che la dipendenza della lunghezza d'onda dai suoi parametri è molto probabilmente non lineare (si può vedere subito dalla presenza della radice quadrata che serve per ottenere il valore di $1/\lambda$), senza considerare che $A$ e $B$ sono tra loro legati da un coefficente di correlazione $\rho_{A,B}$. L'unico modo per ottenere il valore di $1/\lambda$ sarà quindi procedendo con metodi Monte Carlo (da qui in avanti MC). I parametri che presentano errore associato, e che non sono correlati tra loro e con le altre variabili ($\theta_m$, $\theta_0$), sono ipotizzati essere distribuiti secondo una Gaussiana, centrata nel calor medio $\mu_i$ e deviazione standard $\sigma_i$, con $i=\theta_m$, $\theta_0$. Il parametro $\alpha$ è considerato privo di errore. Supponendo di poter considerare $A$, $B$ come distribuzioni Gaussiane di valor medio $\mu_A$, $\mu_B$ e deviazione standard $\sigma_A$, $\sigma_B$ resta da capire come possiamo generare valori di $A$, $B$ che presentano invece coefficente di correlazione $\rho_{A,B} = \num{-0.872}$. Analizziamo in seguito il problema.
+Possiamo osservare che la dipendenza della lunghezza d'onda dai suoi parametri è molto probabilmente non lineare (si può vedere subito dalla presenza della radice quadrata che serve per ottenere il valore di $1/\lambda$), senza considerare che $A$ e $B$ sono tra loro legati da un coefficiente di correlazione $\rho_{A,B}$. L'unico modo per ottenere il valore di $1/\lambda$ sarà quindi procedendo con metodi Monte Carlo (da qui in avanti MC). I parametri che presentano errore associato, e che non sono correlati tra loro e con le altre variabili ($\theta_m$, $\theta_0$), sono ipotizzati essere distribuiti secondo una Gaussiana, centrata nel valor medio $\mu_i$ e deviazione standard $\sigma_i$, con $i=\theta_m$, $\theta_0$. Il parametro $\alpha$ è considerato privo di errore. Supponendo di poter considerare $A$, $B$ come distribuzioni Gaussiane di valor medio $\mu_A$, $\mu_B$ e deviazione standard $\sigma_A$, $\sigma_B$ resta da capire come possiamo generare valori di $A$, $B$ che presentano invece coefficiente di correlazione $\rho_{A,B} = \num{-0.872}$. Analizziamo in seguito il problema.
 
 \subsection{Generazione di variabili correlate}
-\emph{Il risultato che si ottiene è frutto di una ricerca e non tutto farina del nostro sacco, i crediti vanno a \cite{anthonyAnswerHowDoes2015, sobolevAnswerHowDoes2015, kaiserSamplePopulationScore1962}, anche se comunque siamo riusciti a rieseguire i calcoli e trovare la soluzione proposta. }
+\emph{Il risultato che si ottiene è frutto di una ricerca e non tutto farina del nostro sacco, i crediti vanno a \cite{anthonyAnswerHowDoes2015, sobolevAnswerHowDoes2015}, anche se comunque siamo riusciti a rieseguire i calcoli e trovare la soluzione proposta. }
 
 \begin{figure*}
 \centering
 \includegraphics[width=15cm]{../figures_and_tests/gaus_compAB.pdf}
-\caption{Abbiamo generato $A$, $B$ prima utilizzando le formule, quindi a partire da $\lambda_i, \theta_i, \theta_0, \alpha$, poi utilizzando media e deviazione standard abbiamo ricostruito $A$ e $B$ come distribuzioni gaussiane, riportate in rosso.\label{fig:A_B_gaus}}
+\caption{Abbiamo generato $A$, $B$ prima utilizzando le formule, quindi a partire da $\lambda_i, \theta_i, \theta_0, \alpha$, poi utilizzando media e deviazione standard abbiamo ricostruito $A$ e $B$ come distribuzioni Gaussiane, riportate in rosso.\label{fig:A_B_gaus}}
 \end{figure*}
 
 Sapendo che le distribuzioni di $A$, $B$ corrispondono a distribuzioni Gaussiane (fig. \ref{fig:A_B_gaus}), possiamo ipotizzare che siano legate tra loro imponendo che \begin{equation} \left\{ 
@@ -99,11 +99,11 @@ Abbiamo quindi la possibilità di ottenere in modo coerente con quanto atteso il
 
 \subsection{Valori di $R_H$ dagli angoli di Balmer}\label{sec:R_H}
 
-Con metodi MC possiamo ora trovare i valori di $1/\lambda$, e successivamente, conoscendo la \eqref{eq:ryd}, potremmo realizzare un fit lineare per trovare il parametro $R_H$. Se considerassimo un fit minimizzando il valore del $\chi^2$ in maniera standard potremmo non considerare i coefficenti di correlazione che esistono dovuti al modo in cui stiamo calcolando i valori di $1/\lambda_m$, che dipendono tutti dagli stessi valori (con errore associato non trascurabile) di $A$, $B$ e $\theta_0$. 
+Con metodi MC possiamo ora trovare i valori di $1/\lambda$, e successivamente, conoscendo la \eqref{eq:ryd}, potremmo realizzare un fit lineare per trovare il parametro $R_H$. Se considerassimo un fit minimizzando il valore del $\chi^2$ in maniera standard potremmo non considerare i coefficienti di correlazione che esistono dovuti al modo in cui stiamo calcolando i valori di $1/\lambda_m$, che dipendono tutti dagli stessi valori (con errore associato non trascurabile) di $A$, $B$ e $\theta_0$. 
 
-Però possiamo calcolare per ogni coppia $(m, \lambda_m)$, o meglio $(m, 1/\lambda_m)$, un valore di $R_{H,m}$, come \begin{equation} 
+Però possiamo calcolare per ogni coppia $(m, \lambda_m)$ un valore di $R_{H,m}$, come \begin{equation} 
     R_{H,m} = \frac{n^2m^2}{m^2-n^2}\sqrt{\frac{1}{B} \qty(\frac{\sin\frac{\theta_m-\theta_0 + \alpha}{2}}{\sin\frac{\alpha}{2}}-A)},
-\end{equation} dove $\alpha$ è considerato privo di errore, $\theta_m, \theta_0$ sono considerati con errore, $n=2$, $m=3,4,5,6$ sono privi di errori, e $A$, $B$ sono generati come definito prima. Considerata questa relazione possiamo generare $N_\text{exp}$ esperimenti per ogni coppia $(m, \theta_m)$, per ognuno dei quali otteniamo il valore di $R_{H,m}$ per ogni valore di $m$, e possiamo così avere quattro distribuzioni per $R_H$ corrispondenti ai rispettivi valori di $m$ (come in fig. \ref{fig:rydberg}). 
+\end{equation} dove $\alpha$ è considerato privo di errore, $\theta_m, \theta_0$ sono considerati con errore, $n=2$, $m=3,4,5,6$ sono privi di errori, e $A$, $B$ sono generati come definito prima. Considerata questa relazione possiamo generare $N_\text{exp}$ esperimenti per ogni coppia $(m, \theta_m)$, per ognuna delle quali otteniamo il valore di $R_{H,m}$; possiamo così avere quattro distribuzioni per $R_H$ corrispondenti ai rispettivi valori di $m$ (come in fig. \ref{fig:rydberg}). 
 
 \begin{figure}
 \centering
@@ -112,7 +112,7 @@ Però possiamo calcolare per ogni coppia $(m, \lambda_m)$, o meglio $(m, 1/\lamb
 \end{figure}
 
 \subsection{Miglior stima del parametro $\hat R_H$}
-Supponendo che le distribuzioni ottenute in \autoref{sec:R_H} siano distribuzioni gaussiane, che è una ipotesi valida considerato il teorema del limite centrale, conosciamo ora per ogni valore di $R_{H,m}$ una coppia $(\mu_m, \sigma_m)$, e conosciamo inoltre la forma numerica della matrice di correlazione, noti i coefficienti $\rho_{ij}$, dove $i,j=3,\dots, 6$, \begin{equation}
+Supponendo che le distribuzioni ottenute in \autoref{sec:R_H} siano distribuzioni Gaussiane, che è una ipotesi valida considerato il teorema del limite centrale, conosciamo ora per ogni valore di $R_{H,m}$ una coppia $(\mu_m, \sigma_m)$, e conosciamo inoltre la forma numerica della matrice di correlazione, noti i coefficienti $\rho_{ij}$, dove $i,j=3,\dots, 6$, \begin{equation}
 V_{ij}=\rho_{ij}\sigma_i\sigma_j=\left(
 \begin{matrix}
 \sigma_3^2 & \rho_{34}\sigma_3\sigma_4 & \rho_{35}\sigma_3\sigma_5 & \rho_{36}\sigma_3\sigma_6 \\
@@ -121,7 +121,7 @@ V_{ij}=\rho_{ij}\sigma_i\sigma_j=\left(
 & & & \sigma_6^2 \\
 \end{matrix}
 \right).
-\end{equation} Per trovare la miglior stima $\hat R_H$ possiamo sfruttare il metodo \emph{Generalized Least Squares} (GLS), e utilizzando uno stimatore costruito come \emph{Best Linear Unbiased} (BLU), possiamo ottenere minimizzando la funzione \begin{equation} S(\hat R_H) = \sum_{i=3}^{6}\sum_{j = 3}^6 \qty(R_{H,i} - \hat R_H)\cdot V_{ij} \cdot \qty(R_{H,j} - \hat R_H) \end{equation} il valore della miglior stima del coefficente di Rydberg, avendo inoltre il valore della deviazione standard associata alla misura, come \begin{equation} \hat R_H = \frac{u_i V_{ij}^{-1} R_{H,j}}{u_i V_{ij}^{-1} u_j}\end{equation} dove $u_i = 1$  con $1=3, \dots, 6$, e inoltre \begin{equation} \sigma_{\hat R_H} = \frac{1}{u_i V_{ij}^{-1} u_j}.\end{equation} Con i dati forniti otteniamo il valore $\hat R_H = \SI{1.09601(107)e+07}{\per\meter}$.
+\end{equation} Per trovare la miglior stima $\hat R_H$ possiamo sfruttare il metodo \emph{Generalized Least Squares} (GLS), e utilizzando uno stimatore costruito come \emph{Best Linear Unbiased} (BLU), possiamo ottenere minimizzando la funzione \begin{equation} S(\hat R_H) = \sum_{i=3}^{6}\sum_{j = 3}^6 \qty(R_{H,i} - \hat R_H)\cdot V_{ij} \cdot \qty(R_{H,j} - \hat R_H) \end{equation} il valore della miglior stima del coefficiente di Rydberg, avendo inoltre il valore della deviazione standard associata alla misura, come \begin{equation} \hat R_H = \frac{u_i V_{ij}^{-1} R_{H,j}}{u_i V_{ij}^{-1} u_j}\end{equation} dove $u_i = 1$  con $1=3, \dots, 6$, e inoltre \begin{equation} \sigma_{\hat R_H} = \frac{1}{u_i V_{ij}^{-1} u_j}.\end{equation} Con i dati forniti otteniamo il valore $\hat R_H = \SI{1.09601(107)e+07}{\per\meter}$.
 
 \bibliography{corr_matrix_formula}
 
