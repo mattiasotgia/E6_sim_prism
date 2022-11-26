@@ -57,7 +57,7 @@ Come prima cosa possiamo calcolare il valore delle lunghezze d'onda a partire da
 Possiamo osservare che la dipendenza della lunghezza d'onda dai suoi parametri è molto probabilmente non lineare (si può vedere subito dalla presenza della radice quadrata che serve per ottenere il valore di $1/\lambda$), senza considerare che $A$ e $B$ sono tra loro legati da un coefficente di correlazione $\rho_{A,B}$. L'unico modo per ottenere il valore di $1/\lambda$ sarà quindi procedendo con metodi Monte Carlo (da qui in avanti MC). I parametri che presentano errore associato, e che non sono correlati tra loro e con le altre variabili ($\theta_m$, $\theta_0$), sono ipotizzati essere distribuiti secondo una Gaussiana, centrata nel calor medio $\mu_i$ e deviazione standard $\sigma_i$, con $i=\theta_m$, $\theta_0$. Il parametro $\alpha$ è considerato privo di errore. Supponendo di poter considerare $A$, $B$ come distribuzioni Gaussiane di valor medio $\mu_A$, $\mu_B$ e deviazione standard $\sigma_A$, $\sigma_B$ resta da capire come possiamo generare valori di $A$, $B$ che presentano invece coefficente di correlazione $\rho_{A,B} = \num{-0.872}$. Analizziamo in seguito il problema.
 
 \subsection{Generazione di variabili correlate}
-\emph{Il risultato che si ottiene è frutto di una ricerca e non tutto farina del nostro sacco, i crediti vanno a \cite{anthonyAnswerHowDoes2015, sobolevAnswerHowDoes2015, kaiserSamplePopulationScore1962}, anche se siamo riusciti a rieseguire i calcoli e trovare la soluzione proposta. }
+\emph{Il risultato che si ottiene è frutto di una ricerca e non tutto farina del nostro sacco, i crediti vanno a \cite{anthonyAnswerHowDoes2015, sobolevAnswerHowDoes2015, kaiserSamplePopulationScore1962}, anche se comunque siamo riusciti a rieseguire i calcoli e trovare la soluzione proposta. }
 
 \begin{figure*}
 \centering
@@ -121,7 +121,7 @@ V_{ij}=\rho_{ij}\sigma_i\sigma_j=\left(
 & & & \sigma_6^2 \\
 \end{matrix}
 \right).
-\end{equation} Per trovare la miglior stima $\hat R_H$ possiamo sfruttare il metodo \emph{Generalized Least Squares} (GLS), e utilizzando uno stimatore costruito come \emph{Best Linear Unbiased} (BLU), possiamo ottenere che minimizzando la funzione definita come \begin{equation} S(\hat R_H) = \sum_{i,j = 3}^6 \qty(R_{H,i} - \hat R_H)\cdot V_{ij} \cdot \qty(R_{H,j} - \hat R_H) \end{equation} allora possiamo ottenere il valore della miglior stima del coefficente di Rydberg, avendo anche inoltre il valore della deviazione standrad associata alla misura. Con i dati forniti viene otttenuto il valore $\hat R_H = \SI{1.09601(107)e+07}{\per\meter}$.
+\end{equation} Per trovare la miglior stima $\hat R_H$ possiamo sfruttare il metodo \emph{Generalized Least Squares} (GLS), e utilizzando uno stimatore costruito come \emph{Best Linear Unbiased} (BLU), possiamo ottenere che minimizzando la funzione definita come \begin{equation} S(\hat R_H) = \sum_{i,j = 3}^6 \qty(R_{H,i} - \hat R_H)\cdot V_{ij} \cdot \qty(R_{H,j} - \hat R_H) \end{equation} allora possiamo ottenere il valore della miglior stima del coefficente di Rydberg, avendo anche inoltre il valore della deviazione standrad associata alla misura. Con i dati forniti otteniamo il valore $\hat R_H = \SI{1.09601(107)e+07}{\per\meter}$.
 
 
 
