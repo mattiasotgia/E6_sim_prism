@@ -31,6 +31,8 @@
 \date{\today}
 \maketitle
 
+\tableofcontents
+
 \section{Introduzione}
 Sfruttando il fenomeno della rifrazione, un prisma ottico può essere utilizzato come spettrometro per ottenere misure precise della lunghezza d'onda di un fascio monocromatico incidente e anche per separare le componenti di un fascio non monocromatico. 
 
@@ -57,7 +59,7 @@ Come prima cosa possiamo calcolare il valore delle lunghezze d'onda a partire da
 Possiamo osservare che la dipendenza della lunghezza d'onda dai suoi parametri è molto probabilmente non lineare (si può vedere subito dalla presenza della radice quadrata che serve per ottenere il valore di $1/\lambda$), senza considerare che $A$ e $B$ sono tra loro legati da un coefficiente di correlazione $\rho_{A,B}$. L'unico modo per ottenere il valore di $1/\lambda$ sarà quindi procedendo con metodi Monte Carlo (da qui in avanti MC). I parametri che presentano errore associato, e che non sono correlati tra loro e con le altre variabili ($\theta_m$, $\theta_0$), sono ipotizzati essere distribuiti secondo una Gaussiana, centrata nel valor medio $\mu_i$ e deviazione standard $\sigma_i$, con $i=\theta_m$, $\theta_0$. Il parametro $\alpha$ è considerato privo di errore. Supponendo di poter considerare $A$, $B$ come distribuzioni Gaussiane di valor medio $\mu_A$, $\mu_B$ e deviazione standard $\sigma_A$, $\sigma_B$ resta da capire come possiamo generare valori di $A$, $B$ che presentano invece coefficiente di correlazione $\rho_{A,B} = \num{-0.872}$. Analizziamo in seguito il problema.
 
 \subsection{Generazione di variabili correlate}
-\emph{Il risultato che si ottiene è frutto di una ricerca e non tutto farina del nostro sacco, i crediti vanno a \cite{anthonyAnswerHowDoes2015, sobolevAnswerHowDoes2015}, anche se comunque siamo riusciti a rieseguire i calcoli e trovare la soluzione proposta. }
+\emph{Il risultato che si ottiene è frutto di una ricerca e non tutto farina del nostro sacco, i crediti vanno a \cite{anthonyAnswerHowDoes2015, sobolevAnswerHowDoes2015, kaiserSamplePopulationScore1962}, anche se comunque siamo riusciti a rieseguire i calcoli e trovare la soluzione proposta. }
 
 \begin{figure*}
 \centering
